@@ -1,0 +1,13 @@
+---
+title: "About"
+---
+
+## About This Project
+
+This project investigates putting performance among professional golfers on the PGA Tour. By analyzing tournament-level ShotLink data, we explore how putting proficiency varies across professional players and compare the top 25 overall golfers to the wider tour.
+
+## About the Author
+
+This project was created for a final project in statistics.
+
+You can find the code repository for this project on GitHub: [milestone-4](https://github.com/Bsteffen11/milestone-4).

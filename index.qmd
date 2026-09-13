@@ -1,0 +1,96 @@
+---
+title: "PGA Tour Putting Performance"
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+## Research Question
+
+**How does putting performance vary among PGA Tour players, and how do the top 25 players compare?**
+
+In professional golf, putting is often described as high-variance and critical to winning tournaments. This project examines tournament-level putting performance across the PGA Tour to understand how variable putting is from week to week, and whether the top 25 golfers in the world distinguish themselves through superior putting or if other facets of their game carry their success.
+
+## Putting Variation Across the Tour
+
+The visualization below examines the distribution of **Strokes Gained: Putting per round** across 29,180 tournament appearances between 2015 and 2022. The shaded band marks the middle 50% (interquartile range) of all PGA Tour tournament rounds, the dashed line indicates the overall tour median (-0.04), and the boxplots display the career tournament distributions for the top 25 overall players on tour.
+
+```{r}
+#| label: fig-putting-distribution
+#| fig-cap: "Career tournament putting distributions for the top 25 PGA Tour players compared against the overall tour baseline."
+#| fig-width: 8.5
+#| fig-height: 7.5
+
+library(tidyverse)
+
+# Load tournament-level PGA Tour data
+pga_data <- read_csv("data/pga_putting.csv", show_col_types = FALSE)
+
+# Identify the top 25 golfers by career Strokes Gained: Total (min 40 tournaments)
+top25_players <- pga_data |>
+  group_by(player) |>
+  summarize(
+    events = n(),
+    mean_sg_total = mean(sg_total, na.rm = TRUE),
+    median_sg_putt = median(sg_putt, na.rm = TRUE),
+    .groups = "drop"
+  ) |>
+  filter(events >= 40) |>
+  slice_max(order_by = mean_sg_total, n = 25)
+
+# Filter all tournament rounds for these top 25 golfers
+top25_rounds <- pga_data |>
+  inner_join(top25_players |> select(player, median_sg_putt), by = "player") |>
+  mutate(player = fct_reorder(player, median_sg_putt))
+
+# Calculate tour-wide baseline statistics across all 29,180 observations
+tour_median <- median(pga_data$sg_putt, na.rm = TRUE)
+tour_q25 <- quantile(pga_data$sg_putt, 0.25, na.rm = TRUE)
+tour_q75 <- quantile(pga_data$sg_putt, 0.75, na.rm = TRUE)
+
+# Create the comparison graphic
+ggplot(top25_rounds, aes(x = sg_putt, y = player)) +
+  # Shaded region representing the Tour IQR across all 29,180 observations
+  annotate(
+    "rect",
+    xmin = tour_q25, xmax = tour_q75,
+    ymin = -Inf, ymax = Inf,
+    fill = "#e8f0ec", alpha = 0.85
+  ) +
+  # Dashed line at the tour median
+  geom_vline(xintercept = tour_median, linetype = "dashed", color = "#4a6b57", linewidth = 0.7) +
+  # Boxplots showing each top player's distribution across tournaments
+  geom_boxplot(
+    fill = "#2d5a3f", color = "#1b3827",
+    alpha = 0.75, width = 0.55,
+    outlier.alpha = 0.2, outlier.size = 1
+  ) +
+  coord_cartesian(xlim = c(-3.5, 3.5)) +
+  scale_x_continuous(breaks = seq(-3, 3, by = 1)) +
+  labs(
+    title = "Putting Performance: Top 25 PGA Tour Professionals",
+    subtitle = "Tournament putting distributions (2015–2022) vs. Tour middle 50% (shaded) and median (dashed line, N = 29,180)",
+    x = "Strokes Gained: Putting per Round (Tournament Average)",
+    y = NULL,
+    caption = "Data: Academic Sports Analytics (ShotLink / PGA Tour) | Green shaded band represents Tour Interquartile Range"
+  ) +
+  theme_minimal(base_size = 11) +
+  theme(
+    plot.title = element_text(face = "bold", size = 13, color = "#1a1a1a"),
+    plot.subtitle = element_text(size = 9.5, color = "#4a4a4a", margin = margin(b = 10)),
+    plot.caption = element_text(size = 7.5, color = "#666666", margin = margin(t = 10)),
+    axis.text.y = element_text(face = "bold", size = 8.5),
+    panel.grid.minor = element_blank(),
+    panel.grid.major.y = element_line(color = "#f2f2f2")
+  )
+```
+
+## Key Findings
+
+- **High Week-to-Week Variance:** Even the world's best players experience substantial variation from tournament to tournament, spanning several strokes gained or lost per round.
+- **Top Players Span the Spectrum:** World-class overall performance does not require elite putting. While players such as Patrick Cantlay and Xander Schauffele consistently gain strokes on the greens, others like Collin Morikawa and Hideki Matsuyama have median putting performances below the tour median, relying instead on dominant ball-striking and approach play.
+
+## Data Source
+
+The data used in this project comes from the **Academic Sports Analytics PGA Tour dataset**, which compiles official PGA Tour ShotLink tournament-level statistics from the 2015 through 2022 seasons. The cleaned dataset contains **29,180 tournament-level observations** covering player performance, scoring, and Strokes Gained metrics.
