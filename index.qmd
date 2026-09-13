@@ -1,5 +1,5 @@
 ---
-title: "PGA Tour Putting Performance"
+title: "Average Putts Per Round on the PGA Tour"
 execute:
   echo: false
   warning: false
@@ -8,72 +8,73 @@ execute:
 
 ## Research Question
 
-**How does putting performance vary among PGA Tour players, and how do the top 25 players compare?**
+**How does the average number of putts per round vary among PGA Tour players, and how do the top 25 players compare?**
 
-In professional golf, putting is often described as high-variance and critical to winning tournaments. This project examines tournament-level putting performance across the PGA Tour to understand how variable putting is from week to week, and whether the top 25 golfers in the world distinguish themselves through superior putting or if other facets of their game carry their success.
+In professional golf, the number of putts taken per round is a fundamental measure of performance on the greens. While top players strive to minimize putts, putting averages vary substantially based on course conditions, green size, and the number of greens hit in regulation. This project investigates how tournament putting averages fluctuate across the PGA Tour and compares the distributions of the world's leading golfers.
 
-## Putting Variation Across the Tour
+## Putting Distributions Across the Tour
 
-The visualization below examines the distribution of **Strokes Gained: Putting per round** across 29,180 tournament appearances between 2015 and 2022. The shaded band marks the middle 50% (interquartile range) of all PGA Tour tournament rounds, the dashed line indicates the overall tour median (-0.04), and the boxplots display the career tournament distributions for the top 25 overall players on tour.
+The visualization below examines **Average Putts Per Round** across **26,442 tournament observations** from the 2015 through 2023 PGA Tour seasons. The shaded band marks the middle 50% (interquartile range: 28.00 to 29.75) of all tour rounds, the dashed vertical line indicates the tour-wide median of **28.75 putts per round**, and the boxplots display the career tournament distributions for the top 25 players from the final 2024 FedExCup standings (ordered by median putts per round, with the lowest averages at the top).
 
 ```{r}
-#| label: fig-putting-distribution
-#| fig-cap: "Career tournament putting distributions for the top 25 PGA Tour players compared against the overall tour baseline."
+#| label: fig-putts-per-round
+#| fig-cap: "Tournament Putts Per Round distributions for the Top 25 PGA Tour golfers compared to the tour-wide baseline (N = 26,442)."
 #| fig-width: 8.5
 #| fig-height: 7.5
 
 library(tidyverse)
 
-# Load tournament-level PGA Tour data
-pga_data <- read_csv("data/pga_putting.csv", show_col_types = FALSE)
+# Load official tournament Putts Per Round data (Stat 119)
+pga_data <- read_csv("data/pga_putts_per_round.csv", show_col_types = FALSE)
 
-# Identify the top 25 golfers by career Strokes Gained: Total (min 40 tournaments)
-top25_players <- pga_data |>
+# Top 25 players based on the final 2024 FedExCup standings
+top25_players <- c(
+  "Scottie Scheffler", "Xander Schauffele", "Hideki Matsuyama", "Keegan Bradley",
+  "Ludvig Åberg", "Rory McIlroy", "Collin Morikawa", "Wyndham Clark",
+  "Sam Burns", "Patrick Cantlay", "Sungjae Im", "Sahith Theegala", "Shane Lowry",
+  "Adam Scott", "Tony Finau", "Byeong Hun An", "Viktor Hovland", "Russell Henley",
+  "Akshay Bhatia", "Robert MacIntyre", "Billy Horschel", "Tommy Fleetwood",
+  "Sepp Straka", "Matthieu Pavon", "Taylor Pendrith"
+)
+
+# Filter tournament observations for the top 25 players and order by median putts
+top25_data <- pga_data |>
+  filter(player %in% top25_players) |>
   group_by(player) |>
-  summarize(
-    events = n(),
-    mean_sg_total = mean(sg_total, na.rm = TRUE),
-    median_sg_putt = median(sg_putt, na.rm = TRUE),
-    .groups = "drop"
-  ) |>
-  filter(events >= 40) |>
-  slice_max(order_by = mean_sg_total, n = 25)
+  mutate(player_median = median(putts_per_round, na.rm = TRUE)) |>
+  ungroup() |>
+  mutate(player = fct_reorder(player, -player_median))
 
-# Filter all tournament rounds for these top 25 golfers
-top25_rounds <- pga_data |>
-  inner_join(top25_players |> select(player, median_sg_putt), by = "player") |>
-  mutate(player = fct_reorder(player, median_sg_putt))
-
-# Calculate tour-wide baseline statistics across all 29,180 observations
-tour_median <- median(pga_data$sg_putt, na.rm = TRUE)
-tour_q25 <- quantile(pga_data$sg_putt, 0.25, na.rm = TRUE)
-tour_q75 <- quantile(pga_data$sg_putt, 0.75, na.rm = TRUE)
+# Calculate baseline metrics across all 26,442 tour observations
+tour_median <- median(pga_data$putts_per_round, na.rm = TRUE)
+tour_q25 <- quantile(pga_data$putts_per_round, 0.25, na.rm = TRUE)
+tour_q75 <- quantile(pga_data$putts_per_round, 0.75, na.rm = TRUE)
 
 # Create the comparison graphic
-ggplot(top25_rounds, aes(x = sg_putt, y = player)) +
-  # Shaded region representing the Tour IQR across all 29,180 observations
+ggplot(top25_data, aes(x = putts_per_round, y = player)) +
+  # Shaded region showing the Tour middle 50% across all 26,442 rounds
   annotate(
     "rect",
     xmin = tour_q25, xmax = tour_q75,
     ymin = -Inf, ymax = Inf,
     fill = "#e8f0ec", alpha = 0.85
   ) +
-  # Dashed line at the tour median
-  geom_vline(xintercept = tour_median, linetype = "dashed", color = "#4a6b57", linewidth = 0.7) +
-  # Boxplots showing each top player's distribution across tournaments
+  # Dashed line at the tour median (28.75 putts/round)
+  geom_vline(xintercept = tour_median, linetype = "dashed", color = "#3b6e52", linewidth = 0.7) +
+  # Boxplots representing each player's tournament distribution
   geom_boxplot(
     fill = "#2d5a3f", color = "#1b3827",
     alpha = 0.75, width = 0.55,
-    outlier.alpha = 0.2, outlier.size = 1
+    outlier.alpha = 0.25, outlier.size = 1.1
   ) +
-  coord_cartesian(xlim = c(-3.5, 3.5)) +
-  scale_x_continuous(breaks = seq(-3, 3, by = 1)) +
+  coord_cartesian(xlim = c(25, 33)) +
+  scale_x_continuous(breaks = seq(25, 33, by = 1)) +
   labs(
-    title = "Putting Performance: Top 25 PGA Tour Professionals",
-    subtitle = "Tournament putting distributions (2015–2022) vs. Tour middle 50% (shaded) and median (dashed line, N = 29,180)",
-    x = "Strokes Gained: Putting per Round (Tournament Average)",
+    title = "Putts Per Round: Top 25 PGA Tour Professionals",
+    subtitle = "Tournament distributions (2015–2023) vs. Tour middle 50% (shaded band) and median (dashed line, N = 26,442)",
+    x = "Average Putts Per Round",
     y = NULL,
-    caption = "Data: Academic Sports Analytics (ShotLink / PGA Tour) | Green shaded band represents Tour Interquartile Range"
+    caption = "Data: Official PGA Tour ShotLink (Stat 119, 2015–2023) | Sample: Top 25 players from 2024 FedExCup standings | Shaded band = Tour IQR (28.00–29.75)"
   ) +
   theme_minimal(base_size = 11) +
   theme(
@@ -88,9 +89,10 @@ ggplot(top25_rounds, aes(x = sg_putt, y = player)) +
 
 ## Key Findings
 
-- **High Week-to-Week Variance:** Even the world's best players experience substantial variation from tournament to tournament, spanning several strokes gained or lost per round.
-- **Top Players Span the Spectrum:** World-class overall performance does not require elite putting. While players such as Patrick Cantlay and Xander Schauffele consistently gain strokes on the greens, others like Collin Morikawa and Hideki Matsuyama have median putting performances below the tour median, relying instead on dominant ball-striking and approach play.
+- **Tour-Wide Baseline:** Across all **26,442** tournament rounds analyzed, the median putting performance is **28.75 putts per round**, with the middle 50% of tournament appearances falling tightly between **28.00** and **29.75** putts per round.
+- **Substantial Week-to-Week Variation:** Even the top 25 golfers in the world demonstrate considerable tournament-to-tournament variability, frequently spanning from 26 to over 31 putts per round across events.
+- **Top 25 Comparisons:** Among the top 25 players, golfers such as Sahith Theegala, Wyndham Clark, and Sungjae Im maintain the lowest median putting averages (28.0 to 28.2 putts per round). Conversely, elite ball-strikers such as Collin Morikawa, Keegan Bradley, and Matthieu Pavon register higher median putting averages (29.2 to 29.5 putts per round), demonstrating that top-tier FedExCup finishes can be achieved through outstanding approach and tee-to-green play.
 
 ## Data Source
 
-The data used in this project comes from the **Academic Sports Analytics PGA Tour dataset**, which compiles official PGA Tour ShotLink tournament-level statistics from the 2015 through 2022 seasons. The cleaned dataset contains **29,180 tournament-level observations** covering player performance, scoring, and Strokes Gained metrics.
+The dataset is derived from official **PGA Tour ShotLink** tournament statistics (**Stat 119: Putts Per Round**) covering the **2015 through 2023 seasons**, compiled via the open-source PGA Tour Stats repository. The dataset contains **26,442 validated tournament observations** across 997 professional golfers and 99 tour events, recording each player's total putts, rounds played, and official average putts per round per tournament.
