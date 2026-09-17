@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>About – PGA Tour Putting Performance</title>
+<title>The Scheffler Paradox – PGA Tour Putting Performance</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -103,11 +103,11 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Tour Exploration</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./story.html"> 
+    <a class="nav-link active" href="./story.html" aria-current="page"> 
 <span class="menu-text">The Scheffler Paradox</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./about.html" aria-current="page"> 
+    <a class="nav-link" href="./about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
 </ul>
@@ -126,8 +126,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#about-this-project" id="toc-about-this-project" class="nav-link active" data-scroll-target="#about-this-project">About This Project</a></li>
-  <li><a href="#about-the-author" id="toc-about-the-author" class="nav-link" data-scroll-target="#about-the-author">About the Author</a></li>
+  <li><a href="#the-putting-paradox-of-golfs-most-dominant-player" id="toc-the-putting-paradox-of-golfs-most-dominant-player" class="nav-link active" data-scroll-target="#the-putting-paradox-of-golfs-most-dominant-player">The Putting Paradox of Golf’s Most Dominant Player</a></li>
   </ul>
 </nav>
     </div>
@@ -136,7 +135,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">About</h1>
+<h1 class="title">The Scheffler Paradox</h1>
 </div>
 
 
@@ -153,14 +152,26 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="about-this-project" class="level2">
-<h2 class="anchored" data-anchor-id="about-this-project">About This Project</h2>
-<p>This project explores putting performance on the PGA Tour by examining the <strong>average number of putts per round</strong> across 26,442 tournament appearances from 2015 to 2023. Using official PGA Tour ShotLink data (Stat 119), we analyze tour-wide variation on the greens and compare how the top 25 golfers from the 2024 FedExCup standings perform relative to the tour baseline.</p>
-</section>
-<section id="about-the-author" class="level2">
-<h2 class="anchored" data-anchor-id="about-the-author">About the Author</h2>
-<p>This project was developed as a final project in statistics.</p>
-<p>The source code and data for this project are available on GitHub: <a href="https://github.com/Bsteffen11/milestone-4">milestone-4</a>.</p>
+<section id="the-putting-paradox-of-golfs-most-dominant-player" class="level2">
+<h2 class="anchored" data-anchor-id="the-putting-paradox-of-golfs-most-dominant-player">The Putting Paradox of Golf’s Most Dominant Player</h2>
+<p>Between 2022 and 2024, Scottie Scheffler mounted one of the most statistically dominant stretches in modern PGA Tour history. He captured the Masters, back-to-back Players Championships, and finished atop the FedExCup standings, establishing a historic lead in the Official World Golf Ranking. Yet across that entire dominant run, Scheffler’s putting numbers appeared remarkably pedestrian.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-scheffler-story" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-scheffler-story-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="story_files/figure-html/fig-scheffler-story-1.png" class="img-fluid figure-img" width="768">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-scheffler-story-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Scottie Scheffler’s tournament putts per round across full tour seasons (2020–2023). The red dashed line denotes the tour median (28.75).
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>As the data reveals, Scheffler averaged <strong>28.8 putts per round in 2022</strong> and <strong>29.1 in 2023</strong>—placing him right at or slightly above the tour-wide median of 28.75 putts per round. In several events, his putting average exceeded 31 putts per round, a figure that would cause most touring professionals to miss cuts.</p>
+<p>How did the world’s best golfer dominate while putting at a tour-average rate? The answer lies in ball-striking. Scheffler led the PGA Tour in Greens in Regulation (GIR) and Strokes Gained: Tee-to-Green by wide margins. Players who hit 14 or 15 greens in regulation face 15 birdie putts from 20 to 30 feet, which naturally leads to two-putt pars and roughly 29 to 30 putts. In contrast, golfers who miss greens chip from the fringe and register one-putt up-and-downs, artificially lowering their putts per round.</p>
+<p>The story of Scheffler’s dominance shows why raw putting counts must be contextualized: supreme ball-striking provides a high floor, and whenever Scheffler experienced even a slightly above-average week on the greens (under 28 putts per round), he was virtually unbeatable.</p>
 
 
 </section>
