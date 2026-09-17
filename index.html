@@ -154,16 +154,16 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="putting-distributions-across-the-tour" class="level2">
 <h2 class="anchored" data-anchor-id="putting-distributions-across-the-tour">Putting Distributions Across the Tour</h2>
-<p>The visualization below examines <strong>Average Putts Per Round</strong> across <strong>26,442 tournament observations</strong> from the 2015 through 2023 PGA Tour seasons. Instead of hiding the data inside summary box plots, every tournament appearance for all 997 players is plotted over time, with key golfers highlighted.</p>
+<p>The visualization below examines <strong>Average Putts Per Round</strong> across <strong>26,442 tournament observations</strong> from the 2015 through 2023 PGA Tour seasons. Rather than summarizing with only summary boxes, every individual tournament appearance for the top 25 golfers is plotted as an individual point overlaid on their career distribution, set against the tour-wide middle 50% (shaded band) and tour median of <strong>28.75 putts per round</strong> (dashed line).</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-putts-per-round" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-putts-per-round-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="index_files/figure-html/fig-putts-per-round-1.png" class="img-fluid figure-img" width="864">
+<img src="index_files/figure-html/fig-putts-per-round-1.png" class="img-fluid figure-img" width="816">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-putts-per-round-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Tournament Putts Per Round over time for all 997 PGA Tour players (N = 26,442), highlighting Scottie Scheffler, Rory McIlroy, and Xander Schauffele.
+Figure&nbsp;1: Individual tournament Putts Per Round observations (points) and distributions for the Top 25 PGA Tour golfers compared to the tour-wide baseline.
 </figcaption>
 </figure>
 </div>
@@ -173,9 +173,10 @@ Figure&nbsp;1: Tournament Putts Per Round over time for all 997 PGA Tour players
 <section id="key-findings" class="level2">
 <h2 class="anchored" data-anchor-id="key-findings">Key Findings</h2>
 <ul>
-<li><strong>Tour-Wide Baseline:</strong> Across all <strong>26,442</strong> tournament rounds analyzed, putts per round cluster tightly around 28 to 30, but individual tournament averages range from 23.25 to 36.00.</li>
-<li><strong>Persistent Volatility:</strong> Even the world’s best players experience substantial fluctuation from week to week rather than staying flat at an elite average.</li>
-<li><strong>Individual Trajectories:</strong> Highlighting Scottie Scheffler, Rory McIlroy, and Xander Schauffele reveals how closely top players track the tour center over multi-year spans while riding periodic hot and cold putting streaks.</li>
+<li><strong>Tour-Wide Baseline:</strong> Across all <strong>26,442</strong> tournament rounds analyzed, the median putting performance is <strong>28.75 putts per round</strong>, with the middle 50% of tournament appearances falling tightly between <strong>28.00</strong> and <strong>29.75</strong> putts per round.</li>
+<li><strong>Showing the Real Data:</strong> Overlaid points reveal the raw tournament appearances behind each player’s summary statistics, showing sample size differences and the full spread of rounds.</li>
+<li><strong>Substantial Week-to-Week Variation:</strong> Even the top 25 golfers in the world demonstrate considerable tournament-to-tournament variability, frequently spanning from 26 to over 31 putts per round across events.</li>
+<li><strong>Top 25 Comparisons:</strong> Among the top 25 players, golfers such as Sahith Theegala, Wyndham Clark, and Sungjae Im maintain the lowest median putting averages (28.0 to 28.2 putts per round). Conversely, elite ball-strikers such as Collin Morikawa, Keegan Bradley, and Matthieu Pavon register higher median putting averages (29.2 to 29.5 putts per round), demonstrating that top-tier FedExCup finishes can be achieved through outstanding approach and tee-to-green play.</li>
 </ul>
 </section>
 <section id="data-source" class="level2">

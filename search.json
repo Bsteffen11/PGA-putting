@@ -18,14 +18,14 @@
     "href": "index.html#putting-distributions-across-the-tour",
     "title": "Average Putts Per Round on the PGA Tour",
     "section": "Putting Distributions Across the Tour",
-    "text": "Putting Distributions Across the Tour\nThe visualization below examines Average Putts Per Round across 26,442 tournament observations from the 2015 through 2023 PGA Tour seasons. Instead of hiding the data inside summary box plots, every tournament appearance for all 997 players is plotted over time, with key golfers highlighted.\n\n\n\n\n\n\n\n\nFigure 1: Tournament Putts Per Round over time for all 997 PGA Tour players (N = 26,442), highlighting Scottie Scheffler, Rory McIlroy, and Xander Schauffele."
+    "text": "Putting Distributions Across the Tour\nThe visualization below examines Average Putts Per Round across 26,442 tournament observations from the 2015 through 2023 PGA Tour seasons. Rather than summarizing with only summary boxes, every individual tournament appearance for the top 25 golfers is plotted as an individual point overlaid on their career distribution, set against the tour-wide middle 50% (shaded band) and tour median of 28.75 putts per round (dashed line).\n\n\n\n\n\n\n\n\nFigure 1: Individual tournament Putts Per Round observations (points) and distributions for the Top 25 PGA Tour golfers compared to the tour-wide baseline."
   },
   {
     "objectID": "index.html#key-findings",
     "href": "index.html#key-findings",
     "title": "Average Putts Per Round on the PGA Tour",
     "section": "Key Findings",
-    "text": "Key Findings\n\nTour-Wide Baseline: Across all 26,442 tournament rounds analyzed, putts per round cluster tightly around 28 to 30, but individual tournament averages range from 23.25 to 36.00.\nPersistent Volatility: Even the world’s best players experience substantial fluctuation from week to week rather than staying flat at an elite average.\nIndividual Trajectories: Highlighting Scottie Scheffler, Rory McIlroy, and Xander Schauffele reveals how closely top players track the tour center over multi-year spans while riding periodic hot and cold putting streaks."
+    "text": "Key Findings\n\nTour-Wide Baseline: Across all 26,442 tournament rounds analyzed, the median putting performance is 28.75 putts per round, with the middle 50% of tournament appearances falling tightly between 28.00 and 29.75 putts per round.\nShowing the Real Data: Overlaid points reveal the raw tournament appearances behind each player’s summary statistics, showing sample size differences and the full spread of rounds.\nSubstantial Week-to-Week Variation: Even the top 25 golfers in the world demonstrate considerable tournament-to-tournament variability, frequently spanning from 26 to over 31 putts per round across events.\nTop 25 Comparisons: Among the top 25 players, golfers such as Sahith Theegala, Wyndham Clark, and Sungjae Im maintain the lowest median putting averages (28.0 to 28.2 putts per round). Conversely, elite ball-strikers such as Collin Morikawa, Keegan Bradley, and Matthieu Pavon register higher median putting averages (29.2 to 29.5 putts per round), demonstrating that top-tier FedExCup finishes can be achieved through outstanding approach and tee-to-green play."
   },
   {
     "objectID": "index.html#data-source",
