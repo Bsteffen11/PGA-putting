@@ -1,5 +1,40 @@
 [
   {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Average Putts Per Round on the PGA Tour",
+    "section": "",
+    "text": "How does the average number of putts per round vary among PGA Tour players, and how do the top 25 players compare?\nIn professional golf, the number of putts taken per round is a fundamental measure of performance on the greens. While top players strive to minimize putts, putting averages vary substantially based on course conditions, green size, and the number of greens hit in regulation. This project investigates how tournament putting averages fluctuate across the PGA Tour and compares the distributions of the world’s leading golfers."
+  },
+  {
+    "objectID": "index.html#research-question",
+    "href": "index.html#research-question",
+    "title": "Average Putts Per Round on the PGA Tour",
+    "section": "",
+    "text": "How does the average number of putts per round vary among PGA Tour players, and how do the top 25 players compare?\nIn professional golf, the number of putts taken per round is a fundamental measure of performance on the greens. While top players strive to minimize putts, putting averages vary substantially based on course conditions, green size, and the number of greens hit in regulation. This project investigates how tournament putting averages fluctuate across the PGA Tour and compares the distributions of the world’s leading golfers."
+  },
+  {
+    "objectID": "index.html#putting-distributions-across-the-tour",
+    "href": "index.html#putting-distributions-across-the-tour",
+    "title": "Average Putts Per Round on the PGA Tour",
+    "section": "Putting Distributions Across the Tour",
+    "text": "Putting Distributions Across the Tour\nThe visualization below examines Average Putts Per Round across 26,442 tournament observations from the 2015 through 2023 PGA Tour seasons. Instead of hiding the data inside summary box plots, every tournament appearance for all 997 players is plotted over time, with key golfers highlighted.\n\n\n\n\n\n\n\n\nFigure 1: Tournament Putts Per Round over time for all 997 PGA Tour players (N = 26,442), highlighting Scottie Scheffler, Rory McIlroy, and Xander Schauffele."
+  },
+  {
+    "objectID": "index.html#key-findings",
+    "href": "index.html#key-findings",
+    "title": "Average Putts Per Round on the PGA Tour",
+    "section": "Key Findings",
+    "text": "Key Findings\n\nTour-Wide Baseline: Across all 26,442 tournament rounds analyzed, putts per round cluster tightly around 28 to 30, but individual tournament averages range from 23.25 to 36.00.\nPersistent Volatility: Even the world’s best players experience substantial fluctuation from week to week rather than staying flat at an elite average.\nIndividual Trajectories: Highlighting Scottie Scheffler, Rory McIlroy, and Xander Schauffele reveals how closely top players track the tour center over multi-year spans while riding periodic hot and cold putting streaks."
+  },
+  {
+    "objectID": "index.html#data-source",
+    "href": "index.html#data-source",
+    "title": "Average Putts Per Round on the PGA Tour",
+    "section": "Data Source",
+    "text": "Data Source\nThe dataset is derived from official PGA Tour ShotLink tournament statistics (Stat 119: Putts Per Round) covering the 2015 through 2023 seasons, compiled via the open-source PGA Tour Stats repository. The dataset contains 26,442 validated tournament observations across 997 professional golfers and 99 tour events, recording each player’s total putts, rounds played, and official average putts per round per tournament."
+  },
+  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
@@ -19,40 +54,5 @@
     "title": "About",
     "section": "About the Author",
     "text": "About the Author\nThis project was developed as a final project in statistics.\nThe source code and data for this project are available on GitHub: milestone-4."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Average Putts Per Round on the PGA Tour",
-    "section": "",
-    "text": "How does the average number of putts per round vary among PGA Tour players, and how do the top 25 players compare?\nIn professional golf, the number of putts taken per round is a fundamental measure of performance on the greens. While top players strive to minimize putts, putting averages vary substantially based on course conditions, green size, and the number of greens hit in regulation. This project investigates how tournament putting averages fluctuate across the PGA Tour and compares the distributions of the world’s leading golfers."
-  },
-  {
-    "objectID": "index.html#research-question",
-    "href": "index.html#research-question",
-    "title": "Average Putts Per Round on the PGA Tour",
-    "section": "",
-    "text": "How does the average number of putts per round vary among PGA Tour players, and how do the top 25 players compare?\nIn professional golf, the number of putts taken per round is a fundamental measure of performance on the greens. While top players strive to minimize putts, putting averages vary substantially based on course conditions, green size, and the number of greens hit in regulation. This project investigates how tournament putting averages fluctuate across the PGA Tour and compares the distributions of the world’s leading golfers."
-  },
-  {
-    "objectID": "index.html#putting-distributions-across-the-tour",
-    "href": "index.html#putting-distributions-across-the-tour",
-    "title": "Average Putts Per Round on the PGA Tour",
-    "section": "Putting Distributions Across the Tour",
-    "text": "Putting Distributions Across the Tour\nThe visualization below examines Average Putts Per Round across 26,442 tournament observations from the 2015 through 2023 PGA Tour seasons. The shaded band marks the middle 50% (interquartile range: 28.00 to 29.75) of all tour rounds, the dashed vertical line indicates the tour-wide median of 28.75 putts per round, and the boxplots display the career tournament distributions for the top 25 players from the final 2024 FedExCup standings (ordered by median putts per round, with the lowest averages at the top).\n\n\n\n\n\n\n\n\nFigure 1: Tournament Putts Per Round distributions for the Top 25 PGA Tour golfers compared to the tour-wide baseline (N = 26,442)."
-  },
-  {
-    "objectID": "index.html#key-findings",
-    "href": "index.html#key-findings",
-    "title": "Average Putts Per Round on the PGA Tour",
-    "section": "Key Findings",
-    "text": "Key Findings\n\nTour-Wide Baseline: Across all 26,442 tournament rounds analyzed, the median putting performance is 28.75 putts per round, with the middle 50% of tournament appearances falling tightly between 28.00 and 29.75 putts per round.\nSubstantial Week-to-Week Variation: Even the top 25 golfers in the world demonstrate considerable tournament-to-tournament variability, frequently spanning from 26 to over 31 putts per round across events.\nTop 25 Comparisons: Among the top 25 players, golfers such as Sahith Theegala, Wyndham Clark, and Sungjae Im maintain the lowest median putting averages (28.0 to 28.2 putts per round). Conversely, elite ball-strikers such as Collin Morikawa, Keegan Bradley, and Matthieu Pavon register higher median putting averages (29.2 to 29.5 putts per round), demonstrating that top-tier FedExCup finishes can be achieved through outstanding approach and tee-to-green play."
-  },
-  {
-    "objectID": "index.html#data-source",
-    "href": "index.html#data-source",
-    "title": "Average Putts Per Round on the PGA Tour",
-    "section": "Data Source",
-    "text": "Data Source\nThe dataset is derived from official PGA Tour ShotLink tournament statistics (Stat 119: Putts Per Round) covering the 2015 through 2023 seasons, compiled via the open-source PGA Tour Stats repository. The dataset contains 26,442 validated tournament observations across 997 professional golfers and 99 tour events, recording each player’s total putts, rounds played, and official average putts per round per tournament."
   }
 ]
