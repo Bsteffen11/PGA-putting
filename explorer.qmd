@@ -1,0 +1,82 @@
+---
+title: "Tour Exploration"
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+## Explore Player Putting Performance
+
+Use the interactive tool below to explore putting performance across individual PGA Tour tournaments. 
+
+### How to use this interactive plot:
+- **Hover** over any point to inspect the specific tournament name, date, total putts, and average putts per round.
+- **Click** on a player's name in the legend on the right to toggle them on or off.
+- **Double-click** on a player's name to isolate only that golfer.
+- **Click and drag** on the chart area to zoom into any specific season or time window.
+
+```{r}
+#| label: fig-interactive-explorer
+#| fig-height: 6
+
+library(tidyverse)
+library(plotly)
+
+# Load tournament data
+pga_data <- read_csv("data/pga_putts_per_round.csv", show_col_types = FALSE)
+
+# Prominent players across the 2015-2023 span
+featured_players <- c(
+  "Scottie Scheffler", "Rory McIlroy", "Xander Schauffele",
+  "Collin Morikawa", "Viktor Hovland", "Patrick Cantlay",
+  "Wyndham Clark", "Sahith Theegala", "Hideki Matsuyama",
+  "Jordan Spieth", "Justin Thomas", "Tony Finau"
+)
+
+explore_df <- pga_data |>
+  filter(player %in% featured_players)
+
+# Base ggplot
+p <- ggplot(explore_df, aes(
+  x = date,
+  y = putts_per_round,
+  color = player,
+  text = paste0(
+    "<b>", player, "</b><br>",
+    "Tournament: ", tournament, "<br>",
+    "Date: ", date, "<br>",
+    "Putts/Round: ", round(putts_per_round, 2), "<br>",
+    "Total Putts: ", total_putts, " (", total_rounds, " rounds)"
+  )
+)) +
+  geom_hline(yintercept = 28.75, linetype = "dashed", color = "gray60", linewidth = 0.5) +
+  geom_point(alpha = 0.65, size = 1.8) +
+  geom_line(aes(group = player), alpha = 0.35, linewidth = 0.4) +
+  scale_y_continuous(breaks = seq(24, 34, by = 2)) +
+  scale_x_date(date_breaks = "2 years", date_labels = "%Y") +
+  labs(
+    title = "Interactive Tournament Putting (2015–2023)",
+    x = "Date",
+    y = "Average Putts Per Round",
+    color = "Player"
+  ) +
+  theme_minimal(base_size = 11) +
+  theme(
+    plot.title = element_text(face = "bold", size = 13),
+    panel.grid.minor = element_blank()
+  )
+
+# Convert to interactive plotly widget
+ggplotly(p, tooltip = "text") |>
+  layout(
+    legend = list(
+      orientation = "v",
+      y = 0.5,
+      title = list(text = "<b>Click to Filter:</b>")
+    ),
+    hoverlabel = list(bgcolor = "white")
+  )
+```
+
+The dashed gray line represents the Tour-wide median of **28.75 putts per round**. Notice how even perennial major contenders oscillate above and below the baseline from week to week.

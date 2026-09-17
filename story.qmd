@@ -1,0 +1,59 @@
+---
+title: "The Scheffler Paradox"
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+## The Putting Paradox of Golf's Most Dominant Player
+
+Between 2022 and 2024, Scottie Scheffler mounted one of the most statistically dominant stretches in modern PGA Tour history. He captured the Masters, back-to-back Players Championships, and finished atop the FedExCup standings, establishing a historic lead in the Official World Golf Ranking. Yet across that entire dominant run, Scheffler’s putting numbers appeared remarkably pedestrian.
+
+```{r}
+#| label: fig-scheffler-story
+#| fig-cap: "Scottie Scheffler's tournament putts per round across full tour seasons (2020–2023). The red dashed line denotes the tour median (28.75)."
+#| fig-width: 8
+#| fig-height: 5
+
+library(tidyverse)
+
+pga_data <- read_csv("data/pga_putts_per_round.csv", show_col_types = FALSE)
+tour_median <- median(pga_data$putts_per_round)
+
+scheffler <- pga_data |>
+  filter(player == "Scottie Scheffler", season >= 2020) |>
+  mutate(season = as.factor(season))
+
+ggplot(scheffler, aes(x = season, y = putts_per_round)) +
+  geom_hline(yintercept = tour_median, linetype = "dashed", color = "#c53030", linewidth = 0.8) +
+  annotate(
+    "text",
+    x = "2020", y = tour_median + 0.35,
+    label = "Tour Median (28.75)",
+    color = "#c53030", fontface = "italic", hjust = 0.2, size = 3.6
+  ) +
+  geom_boxplot(fill = "#edf2f7", color = "#2d3748", width = 0.45, outlier.shape = NA) +
+  geom_jitter(color = "#2b6cb0", size = 2.2, alpha = 0.75, width = 0.12, height = 0) +
+  scale_y_continuous(breaks = seq(25, 33, by = 1)) +
+  labs(
+    title = "Scottie Scheffler: Putts Per Round by Season (2020–2023)",
+    subtitle = "Tournament distributions for the world #1 compared to the PGA Tour median baseline",
+    x = "Season",
+    y = "Average Putts Per Round",
+    caption = "Data: Official PGA Tour ShotLink (Stat 119) | Dots represent individual tournament appearances"
+  ) +
+  theme_minimal(base_size = 11) +
+  theme(
+    plot.title = element_text(face = "bold", size = 13, color = "#1a1a1a"),
+    plot.subtitle = element_text(size = 9.5, color = "#4a4a4a", margin = margin(b = 10)),
+    plot.caption = element_text(size = 7.5, color = "#666666", margin = margin(t = 10)),
+    panel.grid.minor = element_blank()
+  )
+```
+
+As the data reveals, Scheffler averaged **28.8 putts per round in 2022** and **29.1 in 2023**—placing him right at or slightly above the tour-wide median of 28.75 putts per round. In several events, his putting average exceeded 31 putts per round, a figure that would cause most touring professionals to miss cuts.
+
+How did the world's best golfer dominate while putting at a tour-average rate? The answer lies in ball-striking. Scheffler led the PGA Tour in Greens in Regulation (GIR) and Strokes Gained: Tee-to-Green by wide margins. Players who hit 14 or 15 greens in regulation face 15 birdie putts from 20 to 30 feet, which naturally leads to two-putt pars and roughly 29 to 30 putts. In contrast, golfers who miss greens chip from the fringe and register one-putt up-and-downs, artificially lowering their putts per round.
+
+The story of Scheffler's dominance shows why raw putting counts must be contextualized: supreme ball-striking provides a high floor, and whenever Scheffler experienced even a slightly above-average week on the greens (under 28 putts per round), he was virtually unbeatable.

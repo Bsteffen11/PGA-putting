@@ -8,6 +8,10 @@ website:
     left:
       - href: index.qmd
         text: Home
+      - href: explorer.qmd
+        text: Tour Exploration
+      - href: story.qmd
+        text: The Scheffler Paradox
       - href: about.qmd
         text: About
 
