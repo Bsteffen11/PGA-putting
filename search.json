@@ -39,21 +39,14 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "This project explores putting performance on the PGA Tour by examining the average number of putts per round across 26,442 tournament appearances from 2015 to 2023. Using official PGA Tour ShotLink data (Stat 119), we analyze tour-wide variation on the greens and compare how the top 25 golfers from the 2024 FedExCup standings perform relative to the tour baseline."
+    "text": "I am a student at New College of Florida, and this website was created as part of my statistics final project.\nName: Brady Steffen\nEmail: b.steffen30@ncf.edu\nGitHub: https://github.com/Bsteffen11\nFinal Project Repository: https://github.com/Bsteffen11/PGA-putting\nNew College of Florida: https://www.ncf.edu/"
   },
   {
     "objectID": "about.html#about-this-project",
     "href": "about.html#about-this-project",
     "title": "About",
-    "section": "",
-    "text": "This project explores putting performance on the PGA Tour by examining the average number of putts per round across 26,442 tournament appearances from 2015 to 2023. Using official PGA Tour ShotLink data (Stat 119), we analyze tour-wide variation on the greens and compare how the top 25 golfers from the 2024 FedExCup standings perform relative to the tour baseline."
-  },
-  {
-    "objectID": "about.html#about-the-author",
-    "href": "about.html#about-the-author",
-    "title": "About",
-    "section": "About the Author",
-    "text": "About the Author\nThis project was developed as a final project in statistics.\nThe source code and data for this project are available on GitHub: milestone-4."
+    "section": "About This Project",
+    "text": "About This Project\nThis project explores putting performance on the PGA Tour by examining the average number of putts per round across 26,442 tournament appearances from 2015 to 2023. Using official PGA Tour ShotLink data (Stat 119), we analyze tour-wide variation on the greens and compare how the top 25 golfers from the 2024 FedExCup standings perform relative to the tour baseline."
   },
   {
     "objectID": "explorer.html",
