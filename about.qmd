@@ -2,12 +2,18 @@
 title: "About"
 ---
 
+I am a student at New College of Florida, and this website was created as part of my statistics final project.
+
+**Name:** Brady Steffen
+
+**Email:** [b.steffen30@ncf.edu](mailto:b.steffen30@ncf.edu)
+
+**GitHub:** [https://github.com/Bsteffen11](https://github.com/Bsteffen11)
+
+**Final Project Repository:** [https://github.com/Bsteffen11/PGA-putting](https://github.com/Bsteffen11/PGA-putting)
+
+**New College of Florida:** [https://www.ncf.edu/](https://www.ncf.edu/)
+
 ## About This Project
 
 This project explores putting performance on the PGA Tour by examining the **average number of putts per round** across 26,442 tournament appearances from 2015 to 2023. Using official PGA Tour ShotLink data (Stat 119), we analyze tour-wide variation on the greens and compare how the top 25 golfers from the 2024 FedExCup standings perform relative to the tour baseline.
-
-## About the Author
-
-This project was developed as a final project in statistics.
-
-The source code and data for this project are available on GitHub: [milestone-4](https://github.com/Bsteffen11/milestone-4).

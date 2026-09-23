@@ -12,6 +12,7 @@ website:
         text: Tour Exploration
       - href: story.qmd
         text: The Scheffler Paradox
+    right:
       - href: about.qmd
         text: About
 
