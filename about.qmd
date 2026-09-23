@@ -2,7 +2,7 @@
 title: "About"
 ---
 
-I am a student at New College of Florida, and this website was created as part of my statistics final project.
+I am a student at New College of Florida, and this website was created as part of my Techne final project.
 
 **Name:** Brady Steffen
 
