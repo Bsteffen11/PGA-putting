@@ -35,18 +35,18 @@
     "text": "Data Source\nThe dataset is derived from official PGA Tour ShotLink tournament statistics (Stat 119: Putts Per Round) covering the 2015 through 2023 seasons, compiled via the open-source PGA Tour Stats repository. The dataset contains 26,442 validated tournament observations across 997 professional golfers and 99 tour events, recording each player’s total putts, rounds played, and official average putts per round per tournament."
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "mcnealy.html",
+    "href": "mcnealy.html",
+    "title": "The McNealy Contrast",
     "section": "",
-    "text": "I am a student at New College of Florida, and this website was created as part of my Techne final project.\nName: Brady Steffen\nEmail: b.steffen30@ncf.edu\nGitHub: https://github.com/Bsteffen11\nFinal Project Repository: https://github.com/Bsteffen11/PGA-putting\nNew College of Florida: https://www.ncf.edu/"
+    "text": "While Scottie Scheffler proved that a golfer can dominate the PGA Tour with median-level putting, Maverick McNealy represents the opposite side of the spectrum. McNealy has consistently ranked as one of the tour’s premier putters, regularly outperforming the field average on the greens. Yet despite his putting brilliance, McNealy has not matched Scheffler-style dominance in the Official World Golf Ranking or tournament victories.\n\n\n\n\n\n\n\n\nFigure 1: Maverick McNealy’s tournament putts per round across full tour seasons (2020–2023). The red dashed line denotes the tour median (28.75).\n\n\n\n\n\n\n\nAcross 2020–2023, McNealy posted a career median of 28.0 putts per round, consistently beating the tour median (28.75) and averaging nearly a full putt per round better than Scheffler (~29.0). In 2023, his average dipped to an extraordinary 27.7 putts per round.\nHowever, comparing their overall tour impact highlights why putting alone cannot create a world number one:\n\nTour Rankings vs. Scheffler: While Scheffler captured multiple major championships, FedExCup titles, and established an insurmountable lead as World No. 1, McNealy has generally hovered between 50th and 100th in the Official World Golf Ranking (OWGR) and FedExCup standings.\nThe Ball-Striking Deficit: Modern golf analytics shows that Strokes Gained: Tee-to-Green accounts for roughly two-thirds of scoring variance on tour. While Scheffler leads the tour in Greens in Regulation (GIR) at over 73%, McNealy has historically ranked near the tour median in greens hit and iron play.\nThe Scrambler’s Effect: McNealy’s low putts-per-round figure is partially driven by necessity: missing greens forces him to chip from around the green and make clutch one-putts to save par. In contrast, Scheffler hits greens from distance, facing longer initial birdie putts that naturally yield two-putts.\n\nIn short, elite putting provides a high scramble floor, but without Scheffler’s generational ball-striking, putting alone cannot produce sustained PGA Tour dominance."
   },
   {
-    "objectID": "about.html#about-this-project",
-    "href": "about.html#about-this-project",
-    "title": "About",
-    "section": "About This Project",
-    "text": "About This Project\nThis project explores putting performance on the PGA Tour by examining the average number of putts per round across 26,442 tournament appearances from 2015 to 2023. Using official PGA Tour ShotLink data (Stat 119), we analyze tour-wide variation on the greens and compare how the top 25 golfers from the 2024 FedExCup standings perform relative to the tour baseline."
+    "objectID": "mcnealy.html#the-limits-of-elite-putting-maverick-mcnealy",
+    "href": "mcnealy.html#the-limits-of-elite-putting-maverick-mcnealy",
+    "title": "The McNealy Contrast",
+    "section": "",
+    "text": "While Scottie Scheffler proved that a golfer can dominate the PGA Tour with median-level putting, Maverick McNealy represents the opposite side of the spectrum. McNealy has consistently ranked as one of the tour’s premier putters, regularly outperforming the field average on the greens. Yet despite his putting brilliance, McNealy has not matched Scheffler-style dominance in the Official World Golf Ranking or tournament victories.\n\n\n\n\n\n\n\n\nFigure 1: Maverick McNealy’s tournament putts per round across full tour seasons (2020–2023). The red dashed line denotes the tour median (28.75).\n\n\n\n\n\n\n\nAcross 2020–2023, McNealy posted a career median of 28.0 putts per round, consistently beating the tour median (28.75) and averaging nearly a full putt per round better than Scheffler (~29.0). In 2023, his average dipped to an extraordinary 27.7 putts per round.\nHowever, comparing their overall tour impact highlights why putting alone cannot create a world number one:\n\nTour Rankings vs. Scheffler: While Scheffler captured multiple major championships, FedExCup titles, and established an insurmountable lead as World No. 1, McNealy has generally hovered between 50th and 100th in the Official World Golf Ranking (OWGR) and FedExCup standings.\nThe Ball-Striking Deficit: Modern golf analytics shows that Strokes Gained: Tee-to-Green accounts for roughly two-thirds of scoring variance on tour. While Scheffler leads the tour in Greens in Regulation (GIR) at over 73%, McNealy has historically ranked near the tour median in greens hit and iron play.\nThe Scrambler’s Effect: McNealy’s low putts-per-round figure is partially driven by necessity: missing greens forces him to chip from around the green and make clutch one-putts to save par. In contrast, Scheffler hits greens from distance, facing longer initial birdie putts that naturally yield two-putts.\n\nIn short, elite putting provides a high scramble floor, but without Scheffler’s generational ball-striking, putting alone cannot produce sustained PGA Tour dominance."
   },
   {
     "objectID": "explorer.html",
@@ -61,6 +61,20 @@
     "title": "Tour Exploration",
     "section": "",
     "text": "Use the interactive tool below to explore putting performance across individual PGA Tour tournaments.\n\n\n\nHover over any point to inspect the specific tournament name, date, total putts, and average putts per round.\nClick on a player’s name in the legend on the right to toggle them on or off.\nDouble-click on a player’s name to isolate only that golfer.\nClick and drag on the chart area to zoom into any specific season or time window.\n\n\n\n\n\n\n\n\n\nFigure 1\n\n\n\n\nThe dashed gray line represents the Tour-wide median of 28.75 putts per round. Notice how even perennial major contenders oscillate above and below the baseline from week to week."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "I am a student at New College of Florida, and this website was created as part of my Techne final project.\nName: Brady Steffen\nEmail: b.steffen30@ncf.edu\nGitHub: https://github.com/Bsteffen11\nFinal Project Repository: https://github.com/Bsteffen11/PGA-putting\nNew College of Florida: https://www.ncf.edu/"
+  },
+  {
+    "objectID": "about.html#about-this-project",
+    "href": "about.html#about-this-project",
+    "title": "About",
+    "section": "About This Project",
+    "text": "About This Project\nThis project explores putting performance on the PGA Tour by examining the average number of putts per round across 26,442 tournament appearances from 2015 to 2023. Using official PGA Tour ShotLink data (Stat 119), we analyze tour-wide variation on the greens and compare how the top 25 golfers from the 2024 FedExCup standings perform relative to the tour baseline."
   },
   {
     "objectID": "story.html",
