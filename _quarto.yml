@@ -12,7 +12,8 @@ website:
         text: Tour Exploration
       - href: story.qmd
         text: The Scheffler Paradox
-    right:
+      - href: mcnealy.qmd
+        text: The McNealy Contrast
       - href: about.qmd
         text: About
 
